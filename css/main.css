@@ -1,0 +1,123 @@
+:root {
+    --bg-color: #0d0e12;
+    --surface-color: #15171e;
+    --border-color: #2d3748;
+    --neon-accent: #00ffcc;
+    --muted-text: #a0aec0;
+    --error-crimson: #f56565;
+    --glow: 0 0 15px rgba(0, 255, 204, 0.2);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: #fff;
+    font-family: 'Inter', system-ui, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+#app {
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+h1 {
+    font-size: 1.75rem;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+    color: #fff;
+}
+
+header p {
+    color: var(--muted-text);
+    font-size: 0.85rem;
+}
+
+.card {
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 24px;
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.control-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.control-group label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--neon-accent);
+    margin-bottom: 12px;
+}
+
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.toggle-btn {
+    background: var(--bg-color);
+    color: var(--muted-text);
+    border: 1px solid var(--border-color);
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-size: 0.85rem;
+}
+
+.toggle-btn.active {
+    border-color: var(--neon-accent);
+    color: var(--neon-accent);
+    box-shadow: var(--glow);
+}
+
+.sticky-button {
+    background-color: var(--neon-accent);
+    color: var(--bg-color);
+    width: 100%;
+    padding: 20px;
+    border: none;
+    border-radius: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    box-shadow: var(--glow);
+    margin-top: 10px;
+}
+
+#display-canvas {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    image-rendering: -moz-crisp-edges;
+    image-rendering: pixelated;
+}

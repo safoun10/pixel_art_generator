@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Pixel Art Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>Pixel Art Generator</h1>
+            <p>Square Photos Only (1:1 Ratio) • Minimum 512x512px</p>
+        </header>
+
+        <main>
+            <div id="upload-area" class="card">
+                <input type="file" id="file-input" accept="image/*" hidden>
+                <label for="file-input" class="drop-zone">
+                    <span>Upload Photo</span>
+                </label>
+                <div id="error-banner" class="hidden"></div>
+            </div>
+
+            <div id="preview-area" class="card">
+                <canvas id="display-canvas" width="1024" height="1024"></canvas>
+            </div>
+
+            <section id="controls" class="card">
+                <div class="control-group">
+                    <label>Resolution</label>
+                    <div class="btn-group" id="res-group">
+                        <button class="toggle-btn" data-val="8">8x8</button>
+                        <button class="toggle-btn" data-val="16">16x16</button>
+                        <button class="toggle-btn" data-val="32">32x32</button>
+                        <button class="toggle-btn active" data-val="64">64x64</button>
+                        <button class="toggle-btn" data-val="128">128x128</button>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label>Gap Size</label>
+                    <div class="btn-group" id="gap-size-group">
+                        <button class="toggle-btn" data-val="0">Off</button>
+                        <button class="toggle-btn" data-val="0.5">0.5px</button>
+                        <button class="toggle-btn active" data-val="1">1px</button>
+                        <button class="toggle-btn" data-val="1.5">1.5px</button>
+                        <button class="toggle-btn" data-val="2">2px</button>
+                    </div>
+                </div>
+            </section>
+
+            <button id="download-btn" class="sticky-button">💾 Download High-Res PNG</button>
+        </main>
+    </div>
+    <script src="js/state.js"></script>
+    <script src="js/guard.js"></script>
+    <script src="js/engine.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+
+</html>
