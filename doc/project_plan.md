@@ -8,10 +8,10 @@ This structured timeline breaks down the construction of the Pixel Art Generator
 
 - **Objective:** Scaffold the application structure and map the state engine layout.
 - **Tasks:**
-    1. Initialize the React app setup (Vite + JSX or Create React App environment).
+    1. Initialize the project structure.
     2. Implement the static dark-neon UI wrapper layout based on `DESIGN_DETAILS.md`.
     3. Set up the basic state variables: `imageSrc`, `resolution`, `paletteMode`, `showGaps`, and `errorMsg`.
-    4. Build the HTML file upload inputs and map them to their corresponding React `useRef` handles.
+    4. Build the HTML file upload inputs and map them to their corresponding DOM elements.
 
 ## 📅 Phase 2: Input Validation Logic & Security Guards
 
@@ -26,7 +26,7 @@ This structured timeline breaks down the construction of the Pixel Art Generator
 
 - **Objective:** Read raw bytes from the pixel canvas and write the core mapping math loop.
 - **Tasks:**
-    1. Instantiate an off-screen container canvas sized explicitly to the target resolution grid ($32 \times 32$ or $64 \times 64$).
+    1. Instantiate an off-screen container canvas sized explicitly to the target resolution grid.
     2. Extract pixel arrays via the `getImageData().data` matrix.
     3. Implement the channel loop logic ($i += 4$) to process Red, Green, and Blue indices.
     4. Write the **Mathematical Quantization Engine** function to map colors to uniform color depth levels.
@@ -39,12 +39,12 @@ This structured timeline breaks down the construction of the Pixel Art Generator
     1. Wire up the visible display canvas with an output format layout locked at $1024 \times 1024$ pixels.
     2. Enforce `imageSmoothingEnabled = false` across browser variants.
     3. Implement the dual-nested matrix loop (`x` and `y`) to compute grid tile blocks dynamically.
-    4. Apply offset spacing metrics (`+1`, `-2`) inside `fillRect` calls to simulate the physical sticky-note tile gaps.
+    4. Apply offset spacing metrics inside `fillRect` calls to simulate the physical sticky-note tile gaps.
 
 ## 📅 Phase 5: High-Res Export Pipeline & Edge Testing
 
 - **Objective:** Finalize local image file generations and test mobile compatibility.
 - **Tasks:**
     1. Write the download script utility leveraging a temporary anchor tag link combined with canvas `.toDataURL()`.
-    2. Wrap rendering loops inside standard React `useEffect` hooks so the image recalculates instantly whenever control toggles change.
+    2. Wrap rendering loops to ensure the image recalculates instantly whenever control toggles change.
     3. Perform layout testing on mobile viewports to ensure responsive styling rules work seamlessly.
