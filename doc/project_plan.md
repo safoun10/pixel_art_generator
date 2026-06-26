@@ -1,10 +1,10 @@
 # Project Plan: Build Milestones
 
-This structured timeline breaks down the construction of the Pixel Art Converter app. It is optimized to align with a first-year Computer Science student's learning progression.
+This structured timeline breaks down the construction of the Pixel Art Generator app. It is optimized to align with a first-year Computer Science student's learning progression.
 
 ---
 
-## 📅 Phase 1: Environment Setup & Core UI Structure 
+## 📅 Phase 1: Environment Setup & Core UI Structure
 
 - **Objective:** Scaffold the application structure and map the state engine layout.
 - **Tasks:**
