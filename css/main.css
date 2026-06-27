@@ -1,7 +1,7 @@
 :root {
 	--bg-color: #050505;
 	--surface-color: #0d0d0d;
-	--border-color: #1a1a1a;
+	--border-color: #555555;
 	--text-primary: #ffffff;
 	--text-muted: #666666;
 	--accent: #ffffff;
@@ -196,6 +196,24 @@ header p {
 	font-size: 0.8rem;
 	letter-spacing: 0.05em;
 	cursor: pointer;
+
+	/* Raised Effect */
+	border-bottom: 4px solid #666;
+	transition:
+		transform 0.1s,
+		border-bottom 0.1s;
+}
+
+.sticky-button:active:not(:disabled) {
+	transform: translateY(4px);
+	border-bottom: none;
+}
+
+.sticky-button:disabled {
+	opacity: 0.3;
+	cursor: not-allowed;
+	border-bottom: none;
+	transform: translateY(4px);
 }
 
 #display-canvas {
@@ -204,4 +222,3 @@ header p {
 	image-rendering: pixelated;
 	display: block;
 }
-
