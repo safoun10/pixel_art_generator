@@ -186,16 +186,26 @@ header p {
 	border-radius: 6px;
 	font-size: 0.75rem;
 	cursor: pointer;
-	transition: all 0.2s;
+	/* Slow down the press slightly for a more "physical" feel */
+	transition:
+		transform 0.5s ease-out,
+		border-bottom 0.5s ease-out;
 
-	/* Raised Effect */
-	border-bottom: 3px solid #333;
+	/* Deeper Raised Effect */
+	border-bottom: 4px solid #222;
 	touch-action: manipulation;
 	-webkit-tap-highlight-color: transparent;
+	user-select: none;
+	-webkit-user-select: none;
 }
 
-.toggle-btn:active:not(.active) {
-	transform: translateY(3px);
+.toggle-btn:hover {
+	filter: brightness(1.2);
+}
+
+.toggle-btn:active {
+	/* Deeper press distance */
+	transform: translateY(4px);
 	border-bottom: none;
 }
 
@@ -203,7 +213,8 @@ header p {
 	background: var(--text-primary);
 	color: var(--bg-color);
 	border-color: var(--text-primary);
-	border-bottom: 3px solid #ccc;
+	/* Keep the base layer color for "pressed" buttons */
+	border-bottom: 4px solid #ccc;
 	transform: translateY(0);
 	cursor: default;
 }
