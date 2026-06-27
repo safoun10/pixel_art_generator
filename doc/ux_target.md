@@ -24,21 +24,20 @@ This document outlines the mobile-first user experience (UX) flow for the Pixel 
 
 When the user taps **"Upload Photo"**, the mobile native file sheet or camera module triggers.
 
-- **The Error Flow:** If a user selects a non-square photo (e.g., a $16:9$ landscape snapshot) or a low-resolution thumbnail ($300 \times 300$):
-    1. The engine rejects the file before allocating memory.
-    2. A red warning banner flashes directly under the upload button.
-    3. The interface resets clean without crashing the React state tree.
-- **The Success Flow:** If the photo passes validation, it loads into memory immediately. The placeholder vanishes, and the canvas instantly processes the image using the default controls ($64 \times 64$, Classic 8-Bit, Grid Gaps Enabled).
+- **The Normalization Flow:** If a user selects a non-square photo or an image smaller than $512 \times 512px$:
+    1.  The application automatically launches a native-style **Crop Overlay**.
+    2.  The user drags the image within a fixed $1:1$ viewport to select the desired area.
+    3.  Upon confirmation, the application clips the selection and normalizes it to a high-resolution square asset ($1024 \times 1024px$) locally in the browser memory.
+- **The Success Flow:** If the photo passes validation (already $1:1$ and $\ge 512px$), it loads immediately. The placeholder vanishes, and the canvas instantly processes the image using the default controls ($64 \times 64$, 1px Gap).
 
 ### Step 3: Interactive Modification
 
 The user scrolls down slightly to interact with full-width, thumb-friendly control modules:
 
-- **Resolution Switch:** Instantly flips between $32 \times 32$ (abstract/retro icon) and $64 \times 64$ (detailed sprite).
-- **Style Engine Toggle:** Switching from **8-Bit** to **Pop-Art** seamlessly replaces the quantization depth slider with a beautiful, fixed 6-color palette preview.
-- **Gap Mechanic:** Tapping **"Gaps (Sticky-Note style)"** mimics a physical mosaic tile layout, while **"No Gaps"** generates a solid, seamless retro sprite.
+- **Resolution Switch:** Instantly flips between "Original" and custom grid sizes ($8 \times 8$ to $128 \times 128$).
+- **Gap Mechanic:** Tapping **"Off"** generates a solid, seamless retro sprite, while selecting a value ($1px$ to $5px$) mimics a physical mosaic tile layout.
 
 ### Step 4: Asset Export
 
-- At the bottom of the viewport, a prominent sticky button reads **"💾 Download High-Res PNG"**.
-- Tapping this bypasses typical low-res screenshotting limitations, automatically pushing a sharp $1024 \times 1024$ image directly into the device's native download/camera roll storage pipeline.
+- At the bottom of the viewport, a prominent button reads **"Download"**.
+- Tapping this automatically triggers a download of the processed $1024 \times 1024$ image directly into the device's storage pipeline.

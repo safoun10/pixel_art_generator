@@ -15,11 +15,11 @@ This structured timeline breaks down the construction of the Pixel Art Generator
 
 ## 📅 Phase 2: Input Validation Logic & Security Guards
 
-- **Objective:** Intercept uploads at the boundary layer to validate files before data processing.
+- **Objective:** Intercept uploads at the boundary layer to validate files and normalize inputs.
 - **Tasks:**
     1. Build an asynchronous image listener inside the upload handler function.
-    2. Write validation conditions checking if the input width matches the height exactly ($1:1$).
-    3. Enforce a resolution barrier rule checking if the source dimensions are $\ge 512 \times 512$ pixels.
+    2. Write validation conditions checking if the input width matches the height exactly ($1:1$) and meets the minimum resolution threshold ($\ge 512 \times 512px$).
+    3. Implement a **Local Cropper Module** (`js/cropper.js`) to handle non-compliant images by allowing users to interactively crop and normalize files to a perfect $1:1$ ratio.
     4. Program error handling banners to dynamically display or clear warning states.
 
 ## 📅 Phase 3: The Low-Res Downscale & Processing Engine
