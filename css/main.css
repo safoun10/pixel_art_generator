@@ -133,6 +133,7 @@ header p {
 
 #upload-area {
 	padding: 0;
+	border: none;
 }
 
 .drop-zone {
@@ -189,6 +190,8 @@ header p {
 
 	/* Raised Effect */
 	border-bottom: 3px solid #333;
+	touch-action: manipulation;
+	-webkit-tap-highlight-color: transparent;
 }
 
 .toggle-btn:active:not(.active) {
