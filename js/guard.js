@@ -9,14 +9,25 @@ fileInput.addEventListener('change', (e) => {
     img.onload = () => {
         // Validate 1:1 and resolution >= 512
         if (img.width !== img.height || img.width < 512) {
-            showError("Invalid dimensions: Must be a square (1:1) and at least 512x512px.");
+            // Trigger cropper instead of error for non-square or small images
+            cropper.show(file);
             return;
         }
-        
+
         hideError();
         updateState({ image: img });
     };
     img.src = URL.createObjectURL(file);
+});
+
+// Listen for cropped image from cropper
+window.addEventListener('image-cropped', (e) => {
+    const croppedImg = new Image();
+    croppedImg.onload = () => {
+        hideError();
+        updateState({ image: croppedImg });
+    };
+    croppedImg.src = e.detail;
 });
 
 function showError(msg) {

@@ -16,17 +16,13 @@ This document covers the UI design tokens, the monochromatic industrial palette,
 
 ---
 
-## 2. Pop-Art & Quantization Logic
-The engine supports real-time pixel quantization and mapping to a fixed 6-color palette. The rendering loop uses precise integer math to ensure sharp, blocky retro visuals.
 
+
+
+## 2. Rendering Logic
+The engine samples raw pixel data from the source image, performing direct grid mapping to ensure high-fidelity color reproduction without artificial quantization.
 ---
 
 ## 3. Critical CSS & Anti-Blur Nudges
 To ensure high-fidelity retro output, anti-aliasing is disabled globally via CSS:
 
-`css
-#display-canvas {
-    image-rendering: -moz-crisp-edges;
-    image-rendering: pixelated;
-}
-`

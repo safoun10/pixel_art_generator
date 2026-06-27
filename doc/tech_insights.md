@@ -1,6 +1,7 @@
 # Technical Insights & Mathematical Foundation
 
-This document breaks down the underlying data structures, memory layouts, and geometry formulas powering the application. It connects this practical project directly to foundational Computer Science concepts.
+
+This document breaks down the underlying data structures, memory layouts, and geometry formulas powering the application.
 
 ---
 
@@ -10,7 +11,8 @@ An image inside an HTML5 Canvas element is represented as a single-dimensional f
 Even though we see an image as a 2D matrix layout of columns and rows, the browser flattens this grid structure into a long linear sequence of channels ordered as: `[R, G, B, A, R, G, B, A, ...]`.
 
 ### Two-Dimensional Grid Index Calculation
-To locate and read a specific $(X, Y)$ coordinate inside this flat list, we convert 2D coordinates into a 1D index array calculation:
+
+To locate and read a specific $(X, Y)$ coordinate inside this flat list, we convert 2D coordinates into a 1D index array calculation used in `js/ui.js`:
 
 $$\text{Index} = (Y \times \text{Width} + X) \times 4$$
 
@@ -35,11 +37,3 @@ Quantization maps a continuous or large range of values down to a smaller, discr
 
 Instead of running a heavy comparison search against a fixed palette array, we can use direct mathematical scaling to divide the standard 255 color range into regular intervals based on the selected `levels` variable (e.g., 2, 4, 6, or 8 levels):
 
-```javascript
-function quantize(value, levels) {
-  // 1. Calculate the size of each step interval bucket
-  const step = 255 / (levels - 1);
-  
-  // 2. Divide value by step size, round to nearest bucket integer, and scale back up
-  return Math.round(Math.round(value / step) * step);
-}
