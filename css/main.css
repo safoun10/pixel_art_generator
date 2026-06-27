@@ -131,6 +131,10 @@ header p {
 	margin-bottom: var(--spacing);
 }
 
+#upload-area {
+	padding: 0;
+}
+
 .drop-zone {
 	display: flex;
 	justify-content: center;
@@ -167,6 +171,12 @@ header p {
 	gap: 8px;
 }
 
+.btn-group-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 6px;
+}
+
 .toggle-btn {
 	background: var(--surface-color);
 	color: var(--text-primary);
@@ -176,12 +186,23 @@ header p {
 	font-size: 0.75rem;
 	cursor: pointer;
 	transition: all 0.2s;
+
+	/* Raised Effect */
+	border-bottom: 3px solid #333;
+}
+
+.toggle-btn:active:not(.active) {
+	transform: translateY(3px);
+	border-bottom: none;
 }
 
 .toggle-btn.active {
 	background: var(--text-primary);
 	color: var(--bg-color);
 	border-color: var(--text-primary);
+	border-bottom: 3px solid #ccc;
+	transform: translateY(0);
+	cursor: default;
 }
 
 .sticky-button {
