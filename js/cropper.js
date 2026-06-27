@@ -11,11 +11,11 @@ const cropper = {
     init() {
         this.canvas.width = 1024;
         this.canvas.height = 1024;
-        
+
         this.canvas.addEventListener('pointerdown', e => this.startDrag(e));
         window.addEventListener('pointermove', e => this.drag(e));
         window.addEventListener('pointerup', () => this.endDrag());
-        
+
         document.getElementById('crop-confirm').addEventListener('click', () => this.confirm());
         document.getElementById('crop-cancel').addEventListener('click', () => this.hide());
     },
@@ -46,10 +46,10 @@ const cropper = {
     draw() {
         this.ctx.fillStyle = '#000';
         this.ctx.fillRect(0, 0, 1024, 1024);
-        
+
         const w = this.img.width * this.scale;
         const h = this.img.height * this.scale;
-        
+
         this.ctx.drawImage(this.img, this.offset.x, this.offset.y, w, h);
     },
 
