@@ -5,6 +5,12 @@ fileInput.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
+    // Check file type
+    if (!file.type.startsWith('image/')) {
+        showError("Invalid file type. Please upload an image.");
+        return;
+    }
+
     const img = new Image();
     img.onload = () => {
         // Validate 1:1 and resolution >= 512
@@ -16,6 +22,9 @@ fileInput.addEventListener('change', (e) => {
 
         hideError();
         updateState({ image: img });
+    };
+    img.onerror = () => {
+        showError("Failed to process image. Please try another file.");
     };
     img.src = URL.createObjectURL(file);
 });
