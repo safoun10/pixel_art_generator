@@ -5,6 +5,7 @@
 	--text-primary: #ffffff;
 	--text-muted: #666666;
 	--accent: #ffffff;
+	--error-crimson: #dc143c;
 	--radius: 8px;
 	--spacing: 16px;
 }
@@ -52,6 +53,17 @@ header p {
 	font-size: 0.8rem;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
+}
+
+.hidden {
+	display: none;
+}
+
+.error-visible {
+	display: block;
+	color: var(--error-crimson);
+	margin-top: 10px;
+	font-weight: 600;
 }
 
 /* Cropper Modal */
