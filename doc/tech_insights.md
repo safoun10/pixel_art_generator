@@ -26,7 +26,7 @@ When matching pixel colors to the fixed Pop-Art palette, the application models 
 
 To determine which palette profile color provides the closest visual match, we calculate the **3D Euclidean Distance** between the target pixel values and our defined color collection:
 
-$$D = \sqrt{(R_2 - R_1)^2 + (G_2 - G_1)^2 + (B_2 - b_1)^2}$$
+$$D = \sqrt{(R_2 - R_1)^2 + (G_2 - G_1)^2 + (B_2 - B_1)^2}$$
 
 The color in our palette that produces the minimum distance value ($D$) wins the match and replaces the original pixel value.
 
